@@ -18,10 +18,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 model = load_model('model.h5')
 model.summary()
 
-# e)
+# e) Izvrsite evaluaciju mreže na testnom skupu podataka.
 score = model.evaluate(X_test, y_test)
+print("Evaluacija mreže na testnom skupu podataka:", score)
 
-# f)
+# f) Izvršite predikciju mreže na skupu podataka za testiranje. Prikažite matricu zabune za skup podataka za testiranje. Komentirajte dobivene rezultate.
 predictions = model.predict(X_test)
 predictions[predictions > 0.5] = 1
 predictions[predictions <= 0.5] = 0

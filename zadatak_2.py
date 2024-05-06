@@ -17,19 +17,21 @@ scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# a)
+# a) Izgradite model logisticke regresije pomocu scikit-learn biblioteke na temelju skupa podataka
+# za ucenje.
 model = LogisticRegression()
 model.fit(X_train, y_train)
 
-# b)
+# b) Provedite klasifikaciju skupa podataka za testiranje pomocu izgradenog modela logisticke
+# regresije.
 y_pred = model.predict(X_test)
 
-# c)
+# c) Izracunajte i prikažite matricu zabune na testnim podacima. Komentirajte dobivene rezultate.
 conf_matrix = confusion_matrix(y_test, y_pred)
 print("Matrica zabune:")
 print(conf_matrix)
 
-# d)
+# d) Izracunajte tocnost, preciznost i odziv na skupu podataka za testiranje. Komentirajte dobivene rezultate.
 print("Tocnost modela:", accuracy_score(y_test, y_pred))
 print("Preciznost modela:", precision_score(y_test, y_pred))
 print("Odziv modela:", recall_score(y_test, y_pred))
